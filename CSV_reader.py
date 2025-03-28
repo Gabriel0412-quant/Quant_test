@@ -45,21 +45,19 @@ plt.show()
 final
 
 
-# Supondo que 'final' seja seu DataFrame e esteja ordenado por data
-# Essa lógica percorre o DataFrame e identifica o primeiro índice
-# a partir do qual todos os valores de RETORNO_GBV são iguais.
+
 remove_index = None
 for i in range(len(final)):
-    # Verifica se a partir da linha i o valor é único (ou seja, não varia)
+ 
     if final['RETORNO_GBV'].iloc[i:].nunique() == 1:
         remove_index = i
         break
 
-# Se encontrou um ponto onde não há variação, mantém somente as linhas anteriores
+
 if remove_index is not None:
     final = final.iloc[:remove_index]
 
-# Exibe o DataFrame resultante
+
 print(final)
 
 
